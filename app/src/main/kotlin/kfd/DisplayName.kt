@@ -1,4 +1,4 @@
 package kfd
 
-//fun displayName(name: String?): String = if (name.isNullOrBlank()) "Гость" else name.trim()
-fun displayName(name: String?): String = name ?: "Гость"
+fun displayName(name: String?): String = if (name.isNullOrBlank()) "Гость" else name.trim()
+//fun displayName(name: String?): String = name ?: "Гость"
