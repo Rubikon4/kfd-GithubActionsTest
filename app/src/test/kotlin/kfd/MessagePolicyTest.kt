@@ -8,4 +8,14 @@ class MessagePolicyTest {
     fun acceptsShortMessage() {
         assertTrue(canSendMessage("Привет"))
     }
+
+    @Test
+    fun acceptsNotStandartLengthMessage() {
+        assertTrue(canSendMessage("Привет", maxLength = 10))
+    }
+
+    @Test
+    fun acceptsBlankMessage() {
+        assertTrue(canSendMessage(" "))
+    }
 }
