@@ -32,7 +32,11 @@ fun analyzeRepo(root: File): RepoReport {
 
     val byExtension = files.groupBy { it.extension }
         .map { (extension, group) ->
-            ExtensionStats(extension, group.size, group.sumOf { it.lines })
+            var totalLines = 0
+            for (file in group) {
+                totalLines += file.lines
+            }
+            ExtensionStats(extension, group.size, totalLines)
         }
         .sortedBy { it.extension }
     val longestFiles = files.sortedWith(
