@@ -77,6 +77,15 @@ class MainTest {
         assertEquals("", output.toString(Charsets.UTF_8))
     }
 
+    private fun createSample(root: File) {
+        val source = File(root, "src")
+        source.mkdirs()
+        File(source, "A.kt").writeText("package sample\nclass A")
+        File(source, "B.kt").writeText("package sample\nclass B\n")
+        File(root, "README.md").writeText("")
+        File(root, "notes.txt").writeText("ignored")
+    }
+
     private fun run(vararg args: String): Int = runAnalyzer(
         arrayOf(*args),
         PrintStream(output, true, Charsets.UTF_8),
